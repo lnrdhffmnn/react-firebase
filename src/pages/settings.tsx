@@ -1,5 +1,6 @@
 import { deleteUser } from "firebase/auth";
 import { useAtomValue } from "jotai";
+import { Link } from "react-router-dom";
 import { userAtom } from "../atoms/user";
 import { routes } from "../routes";
 
@@ -28,11 +29,9 @@ export default function Settings() {
       >
         Apagar conta
       </button>
-      <p className="mt-8">
-        <a href={routes.home.href} className="text-sky-500 hover:underline">
-          {routes.home.label}
-        </a>
-      </p>
+      <Link to={routes.home.href} className="text-sky-500 hover:underline mt-8">
+        {routes.home.label}
+      </Link>
     </>
   );
 }

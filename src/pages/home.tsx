@@ -1,4 +1,5 @@
 import { useAtomValue } from "jotai";
+import { Link } from "react-router-dom";
 import { userAtom } from "../atoms/user";
 import { routes } from "../routes";
 
@@ -28,16 +29,15 @@ export default function Home() {
           {new Date(user?.metadata.lastSignInTime!).toLocaleString()}
         </span>
       </p>
-      <p className="mt-4">
-        <a href={routes.settings.href} className="text-sky-500 hover:underline">
-          {routes.settings.label}
-        </a>
-      </p>
-      <p>
-        <a href={routes.logout.href} className="text-sky-500 hover:underline">
-          {routes.logout.label}
-        </a>
-      </p>
+      <Link
+        to={routes.settings.href}
+        className="text-sky-500 hover:underline mt-4"
+      >
+        {routes.settings.label}
+      </Link>
+      <Link to={routes.logout.href} className="text-sky-500 hover:underline">
+        {routes.logout.label}
+      </Link>
     </>
   );
 }
