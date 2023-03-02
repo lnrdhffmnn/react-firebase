@@ -7,6 +7,7 @@ import "./index.css";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Logout from "./pages/logout";
+import Settings from "./pages/settings";
 import { routes } from "./routes";
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Home />,
+          },
+          {
+            path: routes.settings.href,
+            element: <Settings />,
           },
         ],
       },

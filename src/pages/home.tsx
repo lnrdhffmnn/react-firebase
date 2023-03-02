@@ -29,8 +29,13 @@ export default function Home() {
         </span>
       </p>
       <p className="mt-4">
+        <a href={routes.settings.href} className="text-sky-500 hover:underline">
+          {routes.settings.label}
+        </a>
+      </p>
+      <p>
         <a href={routes.logout.href} className="text-sky-500 hover:underline">
-          Sair
+          {routes.logout.label}
         </a>
       </p>
     </>
