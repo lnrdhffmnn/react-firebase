@@ -2,6 +2,7 @@ import { deleteUser } from "firebase/auth";
 import { useAtomValue } from "jotai";
 import { Link } from "react-router-dom";
 import { userAtom } from "../atoms/user";
+import UserIcon from "../components/user-icon";
 import { routes } from "../routes";
 
 export default function Settings() {
@@ -14,13 +15,17 @@ export default function Settings() {
   return (
     <>
       <div className="flex items-center justify-center gap-4">
-        <img
-          src={user?.photoURL!}
-          alt={user?.displayName!}
-          width={75}
-          height={75}
-          className="rounded-full shadow-md"
-        />
+        {user?.photoURL ? (
+          <img
+            src={user?.photoURL!}
+            alt={user?.displayName!}
+            width={75}
+            height={75}
+            className="rounded-full shadow-md"
+          />
+        ) : (
+          <UserIcon size={75} />
+        )}
         <span className="font-bold text-xl">{user?.displayName}</span>
       </div>
       <button

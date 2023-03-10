@@ -3,6 +3,7 @@ import {
   browserLocalPersistence,
   getAuth,
   setPersistence,
+  connectAuthEmulator,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -17,4 +18,9 @@ const firebaseConfig = {
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-setPersistence(auth, browserLocalPersistence);
+
+if (import.meta.env.DEV) {
+  connectAuthEmulator(auth, "http://localhost:9099");
+} else {
+  setPersistence(auth, browserLocalPersistence);
+}
