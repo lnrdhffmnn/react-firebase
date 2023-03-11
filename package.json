@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "concurrently \"firebase emulators:start\" vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "postinstall": "firebase init"
+    "preview": "vite preview"
   },
   "dependencies": {
     "firebase": "^9.17.1",
